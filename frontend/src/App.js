@@ -3,28 +3,25 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import Sign_in from './Components/Sign_in';
 import Sign_up from './Components/Sign_up';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import About from './Components/About';
+import Landing from './Components/Landing';
+import News from './Components/News';
+import Contact from './Components/Contact';
 
 function App() {
   return (
-    <div className="App">
-      
-      <header>
+    <Router>
+      <div className="App">
         <Navbar />
-        <h1>StarFinder Charater Management Site</h1>
-        <Sign_in />
-        <Sign_up />
-      </header>
-      <body>
-        
-        <section>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis asperiores enim nostrum numquam tenetur iusto consequuntur eum iure doloremque nisi. Earum vel repellat modi, eaque pariatur asperiores omnis rem rerum.</p>
-        </section>
-        <footer>
-            <h6>This is the footer</h6>
-        </footer>
-      </body>
-      
-    </div>
+        <Switch>
+          <Route path="/" exact component={Landing}/> 
+          <Route path="/about" component={About}/>
+          <Route path="/news" component={News}/>
+          <Route path="/contact" component={Contact}/>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
